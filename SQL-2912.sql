@@ -1,12 +1,9 @@
 select year, sum(budget) as total_budget
-from (SELECT budget, year, country
-FROM ai_budget_usa
+from (SELECT * FROM ai_budget_usa
 UNION ALL
-SELECT budget, year, country
-FROM ai_budget_uk
+SELECT * FROM ai_budget_uk
 UNION ALL
-SELECT budget, year, country
-FROM ai_budget_japan
+SELECT * FROM ai_budget_japan
 ) as tmp
 where year>=2018 and year<=2021 
 group by year
